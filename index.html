@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fundación Hope - Solicitud de Ayuda Económica</title>
+<title>Solicitud de Ayuda - Fundación Hope</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 <style>
   body {
@@ -86,6 +86,39 @@
     min-height: 100px;
     resize: vertical;
   }
+  /* Banco lista con logos */
+  .banco-lista {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    flex: 1 1 100%;
+  }
+  .banco-opcion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+  }
+  .banco-opcion:hover {
+    background-color: #f0f4ff;
+  }
+  .banco-opcion input[type="radio"] {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  .banco-opcion img {
+    width: 40px;
+    height: auto;
+    margin-right: 12px;
+    user-select: none;
+  }
   button {
     background-color: #2575fc;
     color: white;
@@ -108,7 +141,6 @@
     text-align: center;
     font-weight: 600;
   }
-  /* Responsive */
   @media (max-width: 600px) {
     .form-group {
       flex: 1 1 100%;
@@ -126,70 +158,136 @@
   <p class="lead">Te apoyamos con un impulso financiero mediante una subvención transparente y segura.</p>
 
   <form id="formularioSolicitud" action="https://formspree.io/f/xgoqzbkg" method="POST" enctype="multipart/form-data">
+
     <h2>Datos Personales</h2>
+
     <div class="form-group">
       <label for="nombre">Nombre completo:</label>
       <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
     </div>
+
     <div class="form-group">
       <label for="documento">Documento de identidad:</label>
-      <input type="text" id="documento" name="documento" placeholder="DNI o Pasaporte" required />
+      <input type="text" id="documento" name="documento" placeholder="DNI, Pasaporte, etc." required />
     </div>
+
     <div class="form-group">
       <label for="edad">Edad:</label>
       <input type="number" id="edad" name="edad" min="0" max="120" placeholder="Tu edad" required />
     </div>
+
     <div class="form-group">
       <label for="telefono">Teléfono:</label>
       <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" required />
     </div>
+
     <div class="form-group full">
       <label for="correo">Correo electrónico:</label>
       <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" />
     </div>
+
     <div class="form-group full">
       <label for="direccion">Dirección:</label>
-      <input type="text" id="direccion" name="direccion" placeholder="Calle, Ciudad, País" required />
+      <input type="text" id="direccion" name="direccion" placeholder="Calle, ciudad, país" required />
     </div>
 
     <h2>Información Bancaria</h2>
-    <div class="form-group">
-      <label for="banco">Nombre del banco:</label>
-      <select id="banco" name="banco" required>
-        <option value="" disabled selected>Selecciona tu banco</option>
-        <option value="Banco A">Banco A</option>
-        <option value="Banco B">Banco B</option>
-        <option value="Banco C">Banco C</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="cuenta">Número de cuenta:</label>
-      <input type="text" id="cuenta" name="cuenta" placeholder="Número de cuenta bancaria" required />
-    </div>
-    
-    <h2>Información de la Ayuda</h2>
-    <div class="form-group full">
-      <label for="tipoAyuda">Tipo de ayuda solicitada:</label>
-      <select id="tipoAyuda" name="tipoAyuda" required>
-        <option value="" disabled selected>Selecciona una opción</option>
-        <option value="Economica">Económica</option>
-        <option value="Alimentos">Alimentos</option>
-        <option value="Ropa">Ropa</option>
-        <option value="Medica">Ayuda médica</option>
-        <option value="Otra">Otra</option>
-      </select>
-    </div>
-    <div class="form-group full">
-      <label for="detalle">Descripción / cantidad:</label>
-      <textarea id="detalle" name="detalle" placeholder="Describe lo que necesitas" required></textarea>
-    </div>
-    <div class="form-group full">
-      <label for="comprobante">Adjuntar comprobante (opcional):</label>
-      <input type="file" id="comprobante" name="comprobante" accept=".jpg,.jpeg,.png,.pdf" />
+
+    <div class="banco-lista">
+      <p>Seleccione su banco:</p>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Chase Bank" required>
+        <img src="https://logos-world.net/wp-content/uploads/2021/03/Chase-Logo.png" alt="Chase Bank logo"/>
+        Chase Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Wells Fargo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Wells_Fargo_Bank.svg/1200px-Wells_Fargo_Bank.svg.png" alt="Wells Fargo logo"/>
+        Wells Fargo
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Citi Bank">
+        <img src="https://logos-world.net/wp-content/uploads/2021/11/Citibank-Logo.png" alt="Citi Bank logo"/>
+        Citi Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Bank of America">
+        <img src="https://1000marcas.net/wp-content/uploads/2019/11/Bank-of-America-Logo.png" alt="Bank of America logo"/>
+        Bank of America
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Capital One">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Capital_One_logo.svg/1200px-Capital_One_logo.svg.png" alt="Capital One logo"/>
+        Capital One
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="PNC Bank">
+        <img src="https://logodownload.org/wp-content/uploads/2019/11/pnc-logo-1.png" alt="PNC Bank logo"/>
+        PNC Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="TD Bank">
+        <img src="https://www.td.com/content/dam/td-com/global/logos/td-logo.svg" alt="TD Bank logo" style="width: 80px;"/>
+        TD Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="US Bank">
+        <img src="https://logos-world.net/wp-content/uploads/2020/05/US-Bank-Logo.png" alt="US Bank logo"/>
+        US Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="BB&T">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/BBT_logo.svg/1200px-BBT_logo.svg.png" alt="BB&T logo"/>
+        BB&T
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="SunTrust">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/SunTrust_Bank_Logo.svg" alt="SunTrust logo"/>
+        SunTrust
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="HSBC Bank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/HSBC_logo_%282018%29.svg/2560px-HSBC_logo_%282018%29.svg.png" alt="HSBC Bank logo"/>
+        HSBC Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Ally Bank">
+        <img src="https://seeklogo.com/images/A/ally-logo-88BB156A90-seeklogo.com.png" alt="Ally Bank logo"/>
+        Ally Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Regions Bank">
+        <img src="https://seeklogo.com/images/R/regions-bank-logo-FDE462E197-seeklogo.com.png" alt="Regions Bank logo"/>
+        Regions Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Fifth Third Bank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Fifth_Third_Bank_logo.svg/1200px-Fifth_Third_Bank_logo.svg.png" alt="Fifth Third Bank logo"/>
+        Fifth Third Bank
+      </label>
+
+      <label class="banco-opcion">
+        <input type="radio" name="banco" value="Otro">
+        <span style="margin-left: 62px;">Otro</span>
+      </label>
     </div>
 
     <h2>Confirmación</h2>
+
     <div class="form-group full">
       <label>
         <input type="checkbox" name="terminos" required />  
@@ -200,6 +298,7 @@
     <button type="submit">Enviar Solicitud</button>
     <p id="mensaje"></p>
   </form>
+
 </div>
 
 <script>
@@ -217,7 +316,7 @@
       headers: {'Accept': 'application/json'}
     }).then(response => {
       if (response.ok) {
-        window.location.href = 'espera_verificacion.html';
+        window.location.href = "espera_verificacion.html";
       } else {
         response.json().then(data => {
           if (data.errors) {
