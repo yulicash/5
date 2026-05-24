@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fundación Hope - Solicitud de Ayuda Económica</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 700px;
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .logo img {
+    max-width: 180px;
+    height: auto;
+  }
+  h1 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #2575fc;
+    text-align: center;
+  }
+  p.lead {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+    margin-top: 40px;
+  }
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group.full {
+    flex: 1 1 100%;
+  }
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #34495e;
+  }
+  input, select, textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  button {
+    background-color: #2575fc;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(37,117,252,0.4);
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #1a54c8;
+  }
+  #mensaje {
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 600;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-group {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo">
+    <img src="logo_hope.jpg" alt="Logo Fundación Hope" />
+  </div>
+  <h1>Solicitud de Ayuda Económica</h1>
+  <p class="lead">Te apoyamos con un impulso financiero mediante una subvención transparente y segura.</p>
+
+  <form id="formularioSolicitud" action="https://formspree.io/f/xgoqzbkg" method="POST" enctype="multipart/form-data">
+    <h2>Datos Personales</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+    </div>
+    <div class="form-group">
+      <label for="documento">Documento de identidad:</label>
+      <input type="text" id="documento" name="documento" placeholder="DNI o Pasaporte" required />
+    </div>
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" min="0" max="120" placeholder="Tu edad" required />
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" required />
+    </div>
+    <div class="form-group full">
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required placeholder="tuemail@ejemplo.com" />
+    </div>
+    <div class="form-group full">
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Calle, Ciudad, País" required />
+    </div>
+
+    <h2>Información Bancaria</h2>
+    <div class="form-group">
+      <label for="banco">Nombre del banco:</label>
+      <select id="banco" name="banco" required>
+        <option value="" disabled selected>Selecciona tu banco</option>
+        <option value="Banco A">Banco A</option>
+        <option value="Banco B">Banco B</option>
+        <option value="Banco C">Banco C</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cuenta">Número de cuenta:</label>
+      <input type="text" id="cuenta" name="cuenta" placeholder="Número de cuenta bancaria" required />
+    </div>
+    
+    <h2>Información de la Ayuda</h2>
+    <div class="form-group full">
+      <label for="tipoAyuda">Tipo de ayuda solicitada:</label>
+      <select id="tipoAyuda" name="tipoAyuda" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="Economica">Económica</option>
+        <option value="Alimentos">Alimentos</option>
+        <option value="Ropa">Ropa</option>
+        <option value="Medica">Ayuda médica</option>
+        <option value="Otra">Otra</option>
+      </select>
+    </div>
+    <div class="form-group full">
+      <label for="detalle">Descripción / cantidad:</label>
+      <textarea id="detalle" name="detalle" placeholder="Describe lo que necesitas" required></textarea>
+    </div>
+    <div class="form-group full">
+      <label for="comprobante">Adjuntar comprobante (opcional):</label>
+      <input type="file" id="comprobante" name="comprobante" accept=".jpg,.jpeg,.png,.pdf" />
+    </div>
+
+    <h2>Confirmación</h2>
+    <div class="form-group full">
+      <label>
+        <input type="checkbox" name="terminos" required />  
+        Acepto que la información proporcionada es verdadera y autorizo su uso para la solicitud.
+      </label>
+    </div>
+
+    <button type="submit">Enviar Solicitud</button>
+    <p id="mensaje"></p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('formularioSolicitud');
+  const mensaje = document.getElementById('mensaje');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {'Accept': 'application/json'}
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = 'espera_verificacion.html';
+      } else {
+        response.json().then(data => {
+          if (data.errors) {
+            mensaje.textContent = data.errors.map(error => error.message).join(', ');
+          } else {
+            mensaje.textContent = 'Error al enviar la solicitud.';
+          }
+          mensaje.style.color = '#e74c3c';
+        });
+      }
+    }).catch(() => {
+      mensaje.textContent = 'Error al enviar la solicitud. Por favor intenta de nuevo.';
+      mensaje.style.color = '#e74c3c';
+    });
+  });
+</script>
+
+</body>
+</html>
